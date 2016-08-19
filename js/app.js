@@ -57,7 +57,7 @@ angular.module('ShittyMoodApp', [])
            } else {
              $scope.list.splice(key, 1);
            }
-           item.data.url = item.data.url.replace('http', "https");
+           item.data.url = item.data.url.replace('http:', "https:");
            item.data.url = item.data.url.replace('gifv', "mp4");
          })
        }
