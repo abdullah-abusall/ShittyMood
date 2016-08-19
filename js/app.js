@@ -5,8 +5,8 @@ angular.module('ShittyMoodApp', [])
    // Allow same origin resource loads.
    'self',
    // Allow loading from our assets domain.  Notice the difference between * and **.
-   'http://i.imgur.com/**',
-   'http://www.youtube.com/**'
+   'https://i.imgur.com/**',
+   'https://www.youtube.com/**'
   ]);
  })
 .service('ShittyService', function($http) {
@@ -57,7 +57,7 @@ angular.module('ShittyMoodApp', [])
            } else {
              $scope.list.splice(key, 1);
            }
-           item.data.url = item.data.url.replace('https', "http");
+           item.data.url = item.data.url.replace('http', "https");
            item.data.url = item.data.url.replace('gifv', "mp4");
          })
        }
