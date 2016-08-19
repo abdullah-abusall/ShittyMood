@@ -1,0 +1,37 @@
+<!doctype html>
+
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+
+  <title>Get out of shitty mood</title>
+  <meta name="description" content="Enhances your mood">
+  <meta name="author" content="Abdullah AbuSall">
+
+  <link rel="stylesheet" href="css/styles.css?v=1.0">
+  <link href="https://fonts.googleapis.com/css?family=Raleway" rel="stylesheet">
+
+  <!--[if lt IE 9]>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv.js"></script>
+  <![endif]-->
+</head>
+
+<body ng-app="ShittyMoodApp">
+  <div ng-controller="ShittyController">
+
+        <div ng-repeat="item in list" ng-show="$index === index" ng-if="$index - index <= 5 && $index - index >= 0" class="post">
+            <h1>{{item.data.title}}</h1>
+            <img ng-if="item.data.type==='img'" ng-src="{{item.data.url}}"/>
+            <iframe ng-if="item.data.type==='youtube'" ng-src="{{item.data.url}}"></iframe>
+            <video ng-if="item.data.type==='gifv'" ng-src="{{item.data.url}}" autoplay="" muted="" loop=""></video>
+            <a href="http://reddit.com{{item.data.permalink}}" title="View on Reddit" target="_blank" class="view-post">View on Reddit</a>
+            <a href="https://www.reddit.com/user/{{item.data.author}}" rel="author" target="_blank" class="view-author">{{item.data.author}}</a>
+        </div>
+
+        <button ng-click="prev()" ng-disabled="!index" class="prev" ng-if="list"></button>
+        <button ng-click="next()" ng-disabled="index + 1 === list.length" class="next" ng-if="list"></button>
+  </div>
+  <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.5.8/angular.min.js"></script>
+  <script src="js/app.js?v=1.0"></script>
+</body>
+</html>
